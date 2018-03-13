@@ -93,5 +93,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="disk.png" />
+    <Resource Include="folder.png" />
+    <Resource Include="text_bold.png" />
+    <Resource Include="text_italic.png" />
+    <Resource Include="text_underline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

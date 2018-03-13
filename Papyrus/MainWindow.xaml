@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:Papyrus"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+        <Window.CommandBindings>
+            <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+            <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+        </Window.CommandBindings>
     <Grid>
-        <DockPanel>
+        <!--<DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header = "_File" x:Name="ToolBarFile">
                     <MenuItem Header="_New..." x:Name="ToolBarNew"/>
@@ -20,6 +24,31 @@
                     <MenuItem Header="_About Papyrus" x:Name="ToolBarAbout"/>
                 </MenuItem>
             </Menu>
+        </DockPanel>-->
+
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top">
+                <Button Command="ApplicationCommands.Open">
+                    <Image Source="folder.png" Width="16" Height="16" />
+                </Button>
+                <Button Command="ApplicationCommands.Save">
+                    <Image Source="disk.png" Width="16" Height="16" />
+                </Button>
+                <Separator />
+                <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
+                    <Image Source="text_bold.png" Width="16" Height="16" />
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
+                    <Image Source="text_italic.png" Width="16" Height="16" />
+                </ToggleButton>
+                <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
+                    <Image Source="text_underline.png" Width="16" Height="16" />
+                </ToggleButton>
+                <Separator />
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+            </ToolBar>
+            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" />
         </DockPanel>
     </Grid>
 </Window>
